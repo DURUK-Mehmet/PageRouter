@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserMaster.master.cs" Inherits="UserMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style type="text/css">
+        .auto-style1 {
+            font-size: large;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container_up_menu" style="margin-left: 10%; margin-right: 10%; height: 100px; width: auto; background-color: aqua"></div>
+        <div>
+            <div style="margin-left: 10%; margin-right: 10%; width: auto; height: 10px"></div>
+            <div class="container_mid_menu" style="margin-left: 10%; margin-right: 10%; width: auto; height: 30px; background-color: aquamarine">
+                <table align="left" class="auto-style1" style="height: 100%; width: 100%">
+                    <tr style="text-align: center;">
+                        <td><a href="HomePage.aspx">Anasayfa</a></td>
+                        <td><a href="Suggest_Site.aspx">Site Öner</a></td>
+                        <td><a href="Contact.aspx">İletişim</a></td>
+                        <td><a href="About_Us.aspx">Hakkımızda</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div style="margin-left: 10%; margin-right: 10%; width: auto; height: 10px"></div>
+        </div>
+        <div style="margin-left: 10%; margin-right: 10%; width: 80%; height: auto;">
+            <div style="margin-right: 0%; float: left; width: 25%; height: auto; background-color: blueviolet;">
+                <strong><span class="auto-style1">Kategoriler</span></strong><br />
+                <asp:DataList ID="DataList1" runat="server" Width="100%">
+                    <ItemTemplate>
+                        <div style="border: thin solid #008080">
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Category_name") %>'></asp:Label>
+                            &nbsp;(<asp:Label ID="Label2" runat="server" Text='<%# Eval("Category_total") %>'></asp:Label>)
+                        </div>
+                    </ItemTemplate>
+                </asp:DataList>
+
+            </div>
+            <div style="margin-left: 26%; background-color: blue; width: 74%; height: 500px">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+
