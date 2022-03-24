@@ -1,48 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMaster.master" AutoEventWireup="true" CodeFile="Suggest_Site.aspx.cs" Inherits="Suggest_Site" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-    .auto-style2 {
-        width: 100%;
-    }
-    .auto-style3 {
-        text-align: right;
-        width: 173px;
-    }
-    .auto-style4 {
-        width: 173px;
-    }
-    .auto-style5 {
-        text-align: right;
-        width: 173px;
-        height: 100px;
-    }
-    .auto-style6 {
-        height: 100px;
-    }
-        .auto-style11 {
-            width: 173px;
-            height: 16px;
-        }
-        .auto-style12 {
-            text-align: right;
-            width: 173px;
-            height: 15px;
-        }
-        .auto-style13 {
-            height: 15px;
-        }
-        .auto-style14 {
-            height: 16px;
-        }
-        .auto-style15 {
-            width: 173px;
-            height: 10px;
-        }
-        .auto-style16 {
-            height: 10px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style2">
