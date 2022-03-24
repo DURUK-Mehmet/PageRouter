@@ -86,7 +86,7 @@
     <tr>
         <td class="auto-style3">Site Kategori</td>
         <td>
-            <asp:TextBox ID="Txt_Category" runat="server" TabIndex="4" Width="400px"></asp:TextBox>
+            <asp:TextBox ID="Txt_Suggest" runat="server" TabIndex="4" Width="400px"></asp:TextBox>
         </td>
     </tr>
     <tr>
@@ -99,7 +99,7 @@
         <td class="auto-style4">
             &nbsp;</td>
         <td>
-            <asp:Button ID="Btn_Send" runat="server" Text="Tavsiye Gönder" Height="50px" TabIndex="5" Width="200px" />
+            <asp:Button ID="Btn_Send" runat="server" Text="Tavsiye Gönder" Height="50px" TabIndex="5" Width="200px" OnClick="Btn_Send_Click" />
         </td>
     </tr>
 </table>
