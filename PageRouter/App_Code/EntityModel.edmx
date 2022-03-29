@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_PageRouterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tbl_Admin">
+          <Key>
+            <PropertyRef Name="Admin_id" />
+          </Key>
+          <Property Name="Admin_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Admin_name" Type="varchar" MaxLength="30" />
+          <Property Name="Admin_password" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Tbl_Category">
+          <Key>
+            <PropertyRef Name="Category_id" />
+          </Key>
+          <Property Name="Category_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_name" Type="varchar" MaxLength="40" />
+          <Property Name="Category_definition" Type="varchar" MaxLength="300" />
+          <Property Name="Category_total" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Tbl_Contact">
+          <Key>
+            <PropertyRef Name="Contact_id" />
+          </Key>
+          <Property Name="Contact_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Contact_name" Type="varchar" MaxLength="40" />
+          <Property Name="Contact_definition" Type="varchar" MaxLength="300" />
+          <Property Name="Contact_mail" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tbl_FeedBack">
+          <Key>
+            <PropertyRef Name="FeedBack_id" />
+          </Key>
+          <Property Name="FeedBack_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeedBack_name" Type="varchar" MaxLength="50" />
+          <Property Name="FeedBack_mail" Type="varchar" MaxLength="50" />
+          <Property Name="FeedBack_date" Type="smalldatetime" />
+          <Property Name="FeedBack_status" Type="bit" />
+          <Property Name="FeedBack_definition" Type="varchar" MaxLength="300" />
+          <Property Name="WebSite_id" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Tbl_Site">
+          <Key>
+            <PropertyRef Name="WebSite_id" />
+          </Key>
+          <Property Name="WebSite_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WebSite_name" Type="varchar" MaxLength="40" />
+          <Property Name="WebSite_url" Type="varchar" MaxLength="50" />
+          <Property Name="WebSite_definition" Type="varchar" MaxLength="300" />
+          <Property Name="WebSite_category" Type="smallint" />
+          <Property Name="WebSite_status" Type="bit" />
+          <Property Name="WebSite_suggest" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Tbl_FeedBack_Tbl_Site">
+          <End Role="Tbl_Site" Type="Self.Tbl_Site" Multiplicity="0..1" />
+          <End Role="Tbl_FeedBack" Type="Self.Tbl_FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Site">
+              <PropertyRef Name="WebSite_id" />
+            </Principal>
+            <Dependent Role="Tbl_FeedBack">
+              <PropertyRef Name="WebSite_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Site_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Site" Type="Self.Tbl_Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="Category_id" />
+            </Principal>
+            <Dependent Role="Tbl_Site">
+              <PropertyRef Name="WebSite_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_PageRouterModelStoreContainer">
+          <EntitySet Name="Tbl_Admin" EntityType="Self.Tbl_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Category" EntityType="Self.Tbl_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Contact" EntityType="Self.Tbl_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_FeedBack" EntityType="Self.Tbl_FeedBack" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Site" EntityType="Self.Tbl_Site" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tbl_FeedBack_Tbl_Site" Association="Self.FK_Tbl_FeedBack_Tbl_Site">
+            <End Role="Tbl_Site" EntitySet="Tbl_Site" />
+            <End Role="Tbl_FeedBack" EntitySet="Tbl_FeedBack" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Site_Tbl_Category" Association="Self.FK_Tbl_Site_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Site" EntitySet="Tbl_Site" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_PageRouterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Admin">
+          <Key>
+            <PropertyRef Name="Admin_id" />
+          </Key>
+          <Property Name="Admin_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Admin_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Admin_password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Category">
+          <Key>
+            <PropertyRef Name="Category_id" />
+          </Key>
+          <Property Name="Category_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Category_definition" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Category_total" Type="Byte" />
+          <NavigationProperty Name="Tbl_Site" Relationship="Self.FK_Tbl_Site_Tbl_Category" FromRole="Tbl_Category" ToRole="Tbl_Site" />
+        </EntityType>
+        <EntityType Name="Tbl_Contact">
+          <Key>
+            <PropertyRef Name="Contact_id" />
+          </Key>
+          <Property Name="Contact_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Contact_name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_definition" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tbl_FeedBack">
+          <Key>
+            <PropertyRef Name="FeedBack_id" />
+          </Key>
+          <Property Name="FeedBack_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeedBack_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FeedBack_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FeedBack_date" Type="DateTime" Precision="0" />
+          <Property Name="FeedBack_status" Type="Boolean" />
+          <Property Name="FeedBack_definition" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="WebSite_id" Type="Int16" />
+          <NavigationProperty Name="Tbl_Site" Relationship="Self.FK_Tbl_FeedBack_Tbl_Site" FromRole="Tbl_FeedBack" ToRole="Tbl_Site" />
+        </EntityType>
+        <EntityType Name="Tbl_Site">
+          <Key>
+            <PropertyRef Name="WebSite_id" />
+          </Key>
+          <Property Name="WebSite_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WebSite_name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="WebSite_url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebSite_definition" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="WebSite_category" Type="Int16" />
+          <Property Name="WebSite_status" Type="Boolean" />
+          <Property Name="WebSite_suggest" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_Category" Relationship="Self.FK_Tbl_Site_Tbl_Category" FromRole="Tbl_Site" ToRole="Tbl_Category" />
+          <NavigationProperty Name="Tbl_FeedBack" Relationship="Self.FK_Tbl_FeedBack_Tbl_Site" FromRole="Tbl_Site" ToRole="Tbl_FeedBack" />
+        </EntityType>
+        <Association Name="FK_Tbl_Site_Tbl_Category">
+          <End Role="Tbl_Category" Type="Self.Tbl_Category" Multiplicity="0..1" />
+          <End Role="Tbl_Site" Type="Self.Tbl_Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Category">
+              <PropertyRef Name="Category_id" />
+            </Principal>
+            <Dependent Role="Tbl_Site">
+              <PropertyRef Name="WebSite_category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_FeedBack_Tbl_Site">
+          <End Role="Tbl_Site" Type="Self.Tbl_Site" Multiplicity="0..1" />
+          <End Role="Tbl_FeedBack" Type="Self.Tbl_FeedBack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Site">
+              <PropertyRef Name="WebSite_id" />
+            </Principal>
+            <Dependent Role="Tbl_FeedBack">
+              <PropertyRef Name="WebSite_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_PageRouterEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Admin" EntityType="Self.Tbl_Admin" />
+          <EntitySet Name="Tbl_Category" EntityType="Self.Tbl_Category" />
+          <EntitySet Name="Tbl_Contact" EntityType="Self.Tbl_Contact" />
+          <EntitySet Name="Tbl_FeedBack" EntityType="Self.Tbl_FeedBack" />
+          <EntitySet Name="Tbl_Site" EntityType="Self.Tbl_Site" />
+          <AssociationSet Name="FK_Tbl_Site_Tbl_Category" Association="Self.FK_Tbl_Site_Tbl_Category">
+            <End Role="Tbl_Category" EntitySet="Tbl_Category" />
+            <End Role="Tbl_Site" EntitySet="Tbl_Site" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_FeedBack_Tbl_Site" Association="Self.FK_Tbl_FeedBack_Tbl_Site">
+            <End Role="Tbl_Site" EntitySet="Tbl_Site" />
+            <End Role="Tbl_FeedBack" EntitySet="Tbl_FeedBack" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_PageRouterModelStoreContainer" CdmEntityContainer="DB_PageRouterEntities2">
+          <EntitySetMapping Name="Tbl_Admin">
+            <EntityTypeMapping TypeName="DB_PageRouterModel.Tbl_Admin">
+              <MappingFragment StoreEntitySet="Tbl_Admin">
+                <ScalarProperty Name="Admin_id" ColumnName="Admin_id" />
+                <ScalarProperty Name="Admin_name" ColumnName="Admin_name" />
+                <ScalarProperty Name="Admin_password" ColumnName="Admin_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Category">
+            <EntityTypeMapping TypeName="DB_PageRouterModel.Tbl_Category">
+              <MappingFragment StoreEntitySet="Tbl_Category">
+                <ScalarProperty Name="Category_id" ColumnName="Category_id" />
+                <ScalarProperty Name="Category_name" ColumnName="Category_name" />
+                <ScalarProperty Name="Category_definition" ColumnName="Category_definition" />
+                <ScalarProperty Name="Category_total" ColumnName="Category_total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Contact">
+            <EntityTypeMapping TypeName="DB_PageRouterModel.Tbl_Contact">
+              <MappingFragment StoreEntitySet="Tbl_Contact">
+                <ScalarProperty Name="Contact_id" ColumnName="Contact_id" />
+                <ScalarProperty Name="Contact_name" ColumnName="Contact_name" />
+                <ScalarProperty Name="Contact_definition" ColumnName="Contact_definition" />
+                <ScalarProperty Name="Contact_mail" ColumnName="Contact_mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_FeedBack">
+            <EntityTypeMapping TypeName="DB_PageRouterModel.Tbl_FeedBack">
+              <MappingFragment StoreEntitySet="Tbl_FeedBack">
+                <ScalarProperty Name="FeedBack_id" ColumnName="FeedBack_id" />
+                <ScalarProperty Name="FeedBack_name" ColumnName="FeedBack_name" />
+                <ScalarProperty Name="FeedBack_mail" ColumnName="FeedBack_mail" />
+                <ScalarProperty Name="FeedBack_date" ColumnName="FeedBack_date" />
+                <ScalarProperty Name="FeedBack_status" ColumnName="FeedBack_status" />
+                <ScalarProperty Name="FeedBack_definition" ColumnName="FeedBack_definition" />
+                <ScalarProperty Name="WebSite_id" ColumnName="WebSite_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Site">
+            <EntityTypeMapping TypeName="DB_PageRouterModel.Tbl_Site">
+              <MappingFragment StoreEntitySet="Tbl_Site">
+                <ScalarProperty Name="WebSite_id" ColumnName="WebSite_id" />
+                <ScalarProperty Name="WebSite_name" ColumnName="WebSite_name" />
+                <ScalarProperty Name="WebSite_url" ColumnName="WebSite_url" />
+                <ScalarProperty Name="WebSite_definition" ColumnName="WebSite_definition" />
+                <ScalarProperty Name="WebSite_category" ColumnName="WebSite_category" />
+                <ScalarProperty Name="WebSite_status" ColumnName="WebSite_status" />
+                <ScalarProperty Name="WebSite_suggest" ColumnName="WebSite_suggest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
