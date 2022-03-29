@@ -13,6 +13,11 @@
         .auto-style1 {
             font-size: large;
         }
+        .auto-style2 {
+            float: left;
+            width: 25%;
+            height: auto;
+        }
     </style>
 
 </head>
@@ -34,7 +39,7 @@
             <div style="margin-left: 10%; margin-right: 10%; width: auto; height: 10px"></div>
         </div>
         <div style="margin-left: 10%; margin-right: 10%; width: 80%; height: auto;">
-            <div style="margin-right: 0%; float: left; width: 25%; height: auto; background-color: blueviolet;">
+            <div style="margin-right: 0%; background-color: blueviolet;" class="auto-style2">
                 <strong><span class="auto-style1">Kategoriler</span></strong><br />
                 <asp:DataList ID="DataList1" runat="server" Width="100%">
                     <ItemTemplate>
