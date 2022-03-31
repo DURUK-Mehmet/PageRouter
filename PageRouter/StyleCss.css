@@ -1,10 +1,9 @@
 ﻿a:link{
     text-decoration:none;
     font-family:'Segoe UI';
-    font-size:14px;
+    font-size:15px;
     font-style:normal;
 }
 a:hover{
     font-size:18px;
-    color:cadetblue;
 }

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMaster.master" AutoEventWireup="true" CodeFile="HomePage.aspx.cs" Inherits="HomePage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+   
     <style type="text/css">
         .auto-style3 {
             width: 100%;
@@ -8,7 +9,7 @@
 
         .auto-style4 {
             height: 23px;
-            background-color: #CC6699;
+            background-color: #808080;
         }
 
         .auto-style5 {
@@ -39,7 +40,7 @@
                         <asp:Label ID="Lbl_Name" runat="server" Text='<%# Eval("WebSite_name") %>'></asp:Label>
                     </td>
                     <td class="auto-style4" style="width: 35%">
-                        <asp:Label ID="Lbl_Url" runat="server" Text='<%# Eval("WebSite_url") %>'></asp:Label>
+                       <a href='<%# Eval("WebSite_url") %>' target="_blank"> <asp:Label ID="Lbl_Url" runat="server" Text='<%# Eval("WebSite_url") %>'></asp:Label></a>
                     </td>
                     <td class="auto-style4" style="width: 50%">
                         <asp:Label ID="Lbl_Definition" runat="server" Text='<%# Eval("WebSite_definition") %>'></asp:Label>

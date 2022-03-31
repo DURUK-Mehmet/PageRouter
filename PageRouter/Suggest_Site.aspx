@@ -66,7 +66,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <table class="auto-style2">
+    <table class="auto-style2" style="width:100%;background-color:aquamarine">
         <tr>
             <td class="auto-style11"></td>
             <td class="auto-style14"></td>

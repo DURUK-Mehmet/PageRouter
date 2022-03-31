@@ -13,6 +13,7 @@
         .auto-style1 {
             font-size: large;
         }
+
         .auto-style2 {
             float: left;
             width: 25%;
@@ -28,7 +29,7 @@
             <div style="margin-left: 10%; margin-right: 10%; width: auto; height: 10px"></div>
             <div class="container_mid_menu" style="margin-left: 10%; margin-right: 10%; width: auto; height: 30px; background-color: aquamarine">
                 <table align="left" class="auto-style1" style="height: 100%; width: 100%">
-                    <tr style="text-align: center; background-color:aliceblue;">
+                    <tr style="text-align: center; background-color: aliceblue;">
                         <td><a href="HomePage.aspx">Anasayfa</a></td>
                         <td><a href="Suggest_Site.aspx">Site Öner</a></td>
                         <td><a href="Contact.aspx">İletişim</a></td>
