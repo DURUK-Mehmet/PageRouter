@@ -9,11 +9,6 @@ using System.Data.SqlClient;
 public partial class Suggest_Site : System.Web.UI.Page
 {
     SqlBaglanti Baglanti = new SqlBaglanti();
-    void Listele()
-    {
-        
-        
-    }
     protected void Page_Load(object sender, EventArgs e)
     {
     }
