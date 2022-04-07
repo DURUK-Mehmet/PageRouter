@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminPage.master.cs" Inherits="AdminPage" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="StyleCss.css" rel="stylesheet" />
+    <style type="text/css">
+        
+        .auto-style2 {
+            float: left;
+            width: 25%;
+            height: auto;
+        }
+        .auto-style3 {
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container_up_menu" style="margin-left: 10%; margin-right: 10%; height: 100px; width: auto; background-color: aqua"></div>
+        <div>
+            <div style="margin-left: 10%; margin-right: 10%; width: auto; height: 10px"></div>
+        </div>
+        <div style="margin-left: 10%; margin-right: 10%; width: 80%; height: auto;">
+            <div style="margin-right: 0%; background-color: blueviolet;" class="auto-style2">
+                Menüler<br />
+                <br />
+                <table class="auto-style3">
+                    <tr>
+                        <td><a href="Categories.aspx">Kategoriler</a> </td>
+                    </tr>
+                    <tr>
+                        <td>Siteler</td>
+                    </tr>
+                    <tr>
+                        <td>İletişim</td>
+                    </tr>
+                    <tr>
+                        <td>Tavsiyeler</td>
+                    </tr>
+                    <tr>
+                        <td>Hakkımızda</td>
+                    </tr>
+                </table>
+                <br />
+
+            </div>
+            <div style="margin-left: 26%; background-color: brown; width: 74%; height: auto">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+
