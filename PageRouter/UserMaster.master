@@ -45,7 +45,8 @@
                 <asp:DataList ID="DataList1" runat="server" Width="100%">
                     <ItemTemplate>
                         <div style="border: thin solid #008080">
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Category_name") %>'></asp:Label>
+                            <a href="HomePage2.aspx?WebSite_category=<%#Eval("Category_id")%>">
+                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("Category_name") %>'></asp:Label></a>
                             &nbsp;(<asp:Label ID="Label2" runat="server" Text='<%# Eval("Category_total") %>'></asp:Label>)
                         </div>
                     </ItemTemplate>
