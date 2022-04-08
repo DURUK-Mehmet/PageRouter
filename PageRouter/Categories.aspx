@@ -50,7 +50,7 @@
             </tr>
             <tr>
                 <td class="auto-style5" colspan="2" style="text-align:center">
-                    <asp:Button ID="Btn_Add" runat="server" Text="Kaydet" Width="15%" />
+                    <asp:Button ID="Btn_Add" runat="server" Text="Kaydet" Width="15%" OnClick="Btn_Add_Click" />
                 </td>
             </tr>
         </table>
