@@ -26,7 +26,7 @@
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("Category_name") %>'></asp:Label>
                         </td>
                         <td width="25%" class="auto-style4"><a href="CategoryUpdate.aspx?Category_id=<%# Eval("Category_id") %>">Güncelle</a></td>
-                        <td width="25%" class="auto-style4">Sil</td>
+                        <td width="25%" class="auto-style4"><a href="Categories.aspx?Category_id=<%#Eval("Category_id")%>&islem=sil">Sil</a></td>
                     </tr>
                 </table>
             </ItemTemplate>

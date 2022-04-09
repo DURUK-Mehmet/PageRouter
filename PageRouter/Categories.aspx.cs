@@ -9,12 +9,31 @@ using System.Data.SqlClient;
 public partial class Categories : System.Web.UI.Page
 {
     SqlBaglanti Baglanti=new SqlBaglanti();
+    string id = "";
+    string islem = "";
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Page.IsPostBack == false)
+        {
+            id=Request.QueryString["Category_id"];
+            islem = Request.QueryString["islem"];
+        }
         SqlCommand sqlCommand = new SqlCommand("Select * From Tbl_Category",Baglanti.sqlBaglanti());
         SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
         DataList1.DataSource = sqlDataReader;
         DataList1.DataBind();
+        if (islem=="sil")
+        {
+            SqlCommand commandDelete = new SqlCommand("delete from Tbl_Category where Category_id=@p1",Baglanti.sqlBaglanti());
+            if (String.IsNullOrEmpty(id))
+            {
+                commandDelete.Parameters.AddWithValue("@p1", DBNull.Value);
+            }
+            else
+                commandDelete.Parameters.AddWithValue("@p1", id);
+            commandDelete.ExecuteNonQuery();
+            Baglanti.sqlBaglanti().Close();
+        }
         
     }
 
