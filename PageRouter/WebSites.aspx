@@ -26,7 +26,7 @@
                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("WebSite_name") %>'></asp:Label>
                         </td>
                         <td width="25%" class="auto-style4"><a href="SiteUpdate.aspx?WebSite_id=<%#Eval("WebSite_id") %>">Güncelle</a></td>
-                        <td width="25%" class="auto-style4">Sil</td>
+                        <td width="25%" class="auto-style4"><a href="WebSites.aspx?WebSite_id=<%#Eval("WebSite_id")%>&islem=sil "> Sil</a></td>
                     </tr>
                 </table>
             </ItemTemplate>

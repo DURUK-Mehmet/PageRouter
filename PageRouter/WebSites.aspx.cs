@@ -9,10 +9,17 @@ using System.Data.SqlClient;
 public partial class WebSites : System.Web.UI.Page
 {
     SqlBaglanti Baglanti=new SqlBaglanti();
+    string id="";
+    string islem = "";
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Page.IsPostBack==false)
         {
+            id=Request.QueryString["WebSite_id"];
+            islem = Request.QueryString["islem"];
+
+
+
             SqlCommand sqlCommand1 = new SqlCommand("select * from Tbl_Category", Baglanti.sqlBaglanti());
             SqlDataReader sqlDataReader1 = sqlCommand1.ExecuteReader();
             DropDownList1.DataTextField = "Category_name";
@@ -25,7 +32,13 @@ public partial class WebSites : System.Web.UI.Page
         DataList1.DataSource = sqlDataReader;
         DataList1.DataBind();
 
-        
+        if (islem=="sil")
+        {
+            SqlCommand sqlCommand1 = new SqlCommand("delete from Tbl_Site where WebSite_id=@p1",Baglanti.sqlBaglanti());
+            sqlCommand1.Parameters.AddWithValue("@p1",id);
+            sqlCommand1.ExecuteNonQuery();
+            Baglanti.sqlBaglanti().Close();
+        }
     }
 
     protected void Btn_Add_Click(object sender, EventArgs e)
@@ -36,6 +49,12 @@ public partial class WebSites : System.Web.UI.Page
         sqlCommand.Parameters.AddWithValue("@v3", Txt_Definition.Text);
         sqlCommand.Parameters.AddWithValue("@v4", DropDownList1.SelectedValue);
         sqlCommand.ExecuteNonQuery();
+        Baglanti.sqlBaglanti().Close();
+
+
+        SqlCommand sqlCommand1 = new SqlCommand("update Tbl_Category set Category_total=Category_total+1 where Category_id=@p1",Baglanti.sqlBaglanti());
+        sqlCommand1.Parameters.AddWithValue("@p1",DropDownList1.SelectedValue);
+        sqlCommand1.ExecuteNonQuery();
         Baglanti.sqlBaglanti().Close();
 
     }
