@@ -38,7 +38,7 @@
                         <td><a href="Categories.aspx">Kategoriler</a> </td>
                     </tr>
                     <tr>
-                        <td>Siteler</td>
+                        <td><a href="WebSites.aspx">Siteler</a></td>
                     </tr>
                     <tr>
                         <td>İletişim</td>
