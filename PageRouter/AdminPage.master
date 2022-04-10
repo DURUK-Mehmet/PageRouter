@@ -44,7 +44,7 @@
                         <td><a href="Messages.aspx">İletişim</a></td>
                     </tr>
                     <tr>
-                        <td>Tavsiyeler</td>
+                        <td><a href="Suggested.aspx">Tavsiyeler</a></td>
                     </tr>
                     <tr>
                         <td>Hakkımızda</td>

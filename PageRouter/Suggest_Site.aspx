@@ -60,10 +60,7 @@
         .auto-style18 {
             height: 30px;
         }
-        .auto-style19 {
-            margin-left: 0px;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table class="auto-style2" style="width:100%;background-color:aquamarine">
@@ -104,10 +101,7 @@
         <tr>
             <td class="auto-style17">Site Kategori</td>
             <td class="auto-style18" style="text-align:center;">
-                <asp:DropDownList ID="DropList" runat="server" TabIndex="4" CssClass="auto-style19" Height="75%" Width="25%">
-                    <asp:ListItem Value="Eğlence">Eğlence</asp:ListItem>
-                    <asp:ListItem Value="Film">Film</asp:ListItem>
-                    <asp:ListItem Value="Araştırma">Araştırma</asp:ListItem>
+                <asp:DropDownList ID="DropDownList1" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
