@@ -41,7 +41,7 @@
                         <td><a href="WebSites.aspx">Siteler</a></td>
                     </tr>
                     <tr>
-                        <td>İletişim</td>
+                        <td><a href="Messages.aspx">İletişim</a></td>
                     </tr>
                     <tr>
                         <td>Tavsiyeler</td>
