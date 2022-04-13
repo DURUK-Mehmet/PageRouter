@@ -41,6 +41,9 @@ public partial class SuggestDetails : System.Web.UI.Page
 
     protected void Btn_Accept_Click(object sender, EventArgs e)
     {
-
+        SqlCommand sqlCommand = new SqlCommand("update Tbl_Site set WebSite_status=1 where WebSite_id=@p1",Baglanti.sqlBaglanti());
+        sqlCommand.Parameters.AddWithValue("@p1",id);
+        sqlCommand.ExecuteNonQuery();
+        Baglanti.sqlBaglanti();
     }
 }

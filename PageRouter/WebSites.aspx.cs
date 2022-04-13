@@ -27,7 +27,7 @@ public partial class WebSites : System.Web.UI.Page
             DropDownList1.DataSource = sqlDataReader1;
             DropDownList1.DataBind();
         }
-        SqlCommand sqlCommand = new SqlCommand("select * from Tbl_Site",Baglanti.sqlBaglanti());
+        SqlCommand sqlCommand = new SqlCommand("select * from Tbl_Site where WebSite_status=1",Baglanti.sqlBaglanti());
         SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
         DataList1.DataSource = sqlDataReader;
         DataList1.DataBind();
